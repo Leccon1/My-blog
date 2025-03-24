@@ -5,8 +5,8 @@
 *,
 ::before,
 ::after {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /**
@@ -14,7 +14,7 @@
   у которых есть атрибут class
  */
 :where(ul, ol):where([class]) {
-	padding-left: 0;
+  padding-left: 0;
 }
 
 /**
@@ -23,25 +23,34 @@
  */
 body,
 :where(blockquote, figure):where([class]) {
-	margin: 0;
+  margin: 0;
 }
 
 /**
   Убираем внешние отступы вертикали нужным тегам,
   у которых есть атрибут class
  */
-:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
-	margin-block: 0;
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
 }
 
 :where(dd[class]) {
-	margin-left: 0;
+  margin-left: 0;
 }
 
 :where(fieldset[class]) {
-	margin-left: 0;
-	padding: 0;
-	border: none;
+  margin-left: 0;
+  padding: 0;
+  border: none;
 }
 
 /**
@@ -49,11 +58,11 @@ body,
   у которого есть атрибут class
  */
 :where(ul[class]) {
-	list-style: none;
+  list-style: none;
 }
 
 :where(address[class]) {
-	font-style: normal;
+  font-style: normal;
 }
 
 /**
@@ -62,8 +71,8 @@ body,
   чтобы избежать взаимодействие с более сложным селектором
  */
 p {
-	--paragraphMarginBottom: 24px;
-	margin-block: 0;
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
 }
 
 /**
@@ -71,7 +80,7 @@ p {
   который расположен не последним среди своих соседних элементов
  */
 p:where(:not([class]):not(:last-child)) {
-	margin-bottom: var(--paragraphMarginBottom);
+  margin-bottom: var(--paragraphMarginBottom);
 }
 
 /**
@@ -79,9 +88,9 @@ p:where(:not([class]):not(:last-child)) {
  */
 img,
 video {
-	display: block;
-	max-width: 100%;
-	height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /**
@@ -91,20 +100,20 @@ input,
 textarea,
 select,
 button {
-	font: inherit;
+  font: inherit;
 }
 
 html {
-	/**
+  /**
     Пригодится в большинстве ситуаций
     (когда, например, нужно будет "прижать" футер к низу сайта)
    */
-	height: 100%;
-	/**
+  height: 100%;
+  /**
     Убираем скачок интерфейса по горизонтали
     при появлении / исчезновении скроллбара
    */
-	scrollbar-gutter: stable;
+  scrollbar-gutter: stable;
 }
 
 /**
@@ -112,28 +121,28 @@ html {
  */
 html,
 :has(:target) {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-	/**
+  /**
     Пригодится в большинстве ситуаций
     (когда, например, нужно будет "прижать" футер к низу сайта)
    */
-	min-height: 100%;
-	/**
+  min-height: 100%;
+  /**
     Унифицированный интерлиньяж
    */
-	line-height: 1.5;
+  line-height: 1.5;
 }
 
 /**
   Нормализация высоты элемента ссылки при его инспектировании в DevTools
  */
 a:where([class]) {
-	display: -webkit-inline-box;
-	display: -ms-inline-flexbox;
-	display: inline-flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 /**
@@ -141,7 +150,7 @@ a:where([class]) {
  */
 button,
 label {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 /**
@@ -149,8 +158,9 @@ label {
   (за исключением тех, у которых уже указан
   атрибут fill со значением 'none' или начинается с 'url')
  */
-:where([fill]:not([fill='none'], [fill^='url'])) {
-	fill: currentColor;
+:where([fill]:not([fill=none],
+[fill^=url])) {
+  fill: currentColor;
 }
 
 /**
@@ -158,24 +168,25 @@ label {
   (за исключением тех, у которых уже указан
   атрибут stroke со значением 'none')
  */
-:where([stroke]:not([stroke='none'], [stroke^='url'])) {
-	stroke: currentColor;
+:where([stroke]:not([stroke=none],
+[stroke^=url])) {
+  stroke: currentColor;
 }
 
 /**
   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
  */
 svg * {
-	-webkit-transition-property: fill, stroke;
-	transition-property: fill, stroke;
+  -webkit-transition-property: fill, stroke;
+  transition-property: fill, stroke;
 }
 
 /**
   Приведение рамок таблиц в классический 'collapse' вид
  */
 :where(table) {
-	border-collapse: collapse;
-	border-color: currentColor;
+  border-collapse: collapse;
+  border-color: currentColor;
 }
 
 /**
@@ -183,133 +194,75 @@ svg * {
   которые предпочитают их не использовать
  */
 @media (prefers-reduced-motion: reduce) {
-	*,
-	::before,
-	::after {
-		-webkit-animation-duration: 0.01ms !important;
-		animation-duration: 0.01ms !important;
-		-webkit-animation-iteration-count: 1 !important;
-		animation-iteration-count: 1 !important;
-		-webkit-transition-duration: 0.01ms !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+  *,
+  ::before,
+  ::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 body {
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		right bottom,
-		from(#c395c5),
-		color-stop(#aca2da),
-		color-stop(#8eafe5),
-		color-stop(#71bae6),
-		color-stop(#60c4dd),
-		color-stop(#63c8d1),
-		color-stop(#6fcbc4),
-		color-stop(#81cdb6),
-		color-stop(#90ccac),
-		color-stop(#9fcba3),
-		color-stop(#aec99d),
-		to(#bbc799)
-	);
-	background-image: linear-gradient(
-		to right bottom,
-		#c395c5,
-		#aca2da,
-		#8eafe5,
-		#71bae6,
-		#60c4dd,
-		#63c8d1,
-		#6fcbc4,
-		#81cdb6,
-		#90ccac,
-		#9fcba3,
-		#aec99d,
-		#bbc799
-	);
-	background-size: 400% 400%;
-	height: 100vh;
-	-webkit-animation: gradient 15s ease infinite;
-	animation: gradient 15s ease infinite;
+  background: linear-gradient(135deg, rgb(18, 16, 22), rgb(34, 10, 64));
 }
 
-@-webkit-keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+@font-face {
+  font-family: "Chillax";
+  src: url("/Fonts/Chillax-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: 'Chillax';
-	src: url('/Fonts/Chillax-Bold.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Chillax";
+  src: url("/Fonts/Chillax-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: 'Chillax';
-	src: url('/Fonts/Chillax-Semibold.woff2') format('woff2');
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Chillax";
+  src: url("/Fonts/Chillax-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: 'Chillax';
-	src: url('/Fonts/Chillax-Medium.woff2') format('woff2');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Chillax";
+  src: url("/Fonts/Chillax-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: 'Chillax';
-	src: url('/Fonts/Chillax-Regular.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Gambetta";
+  src: url("/Fonts/Gambetta-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: 'Gambetta';
-	src: url('/Fonts/Gambetta-Bold.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Gambetta";
+  src: url("/Fonts/Gambetta-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: 'Gambetta';
-	src: url('/Fonts/Gambetta-Semibold.woff2') format('woff2');
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Gambetta";
+  src: url("/Fonts/Gambetta-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: 'Gambetta';
-	src: url('/Fonts/Gambetta-Medium.woff2') format('woff2');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Gambetta';
-	src: url('/Fonts/Gambetta-Regular.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Gambetta";
+  src: url("/Fonts/Gambetta-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }

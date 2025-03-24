@@ -1,34 +1,5 @@
 @use 'helpers' as *;
 
 body {
-	background-image: linear-gradient(
-		to right bottom,
-		#c395c5,
-		#aca2da,
-		#8eafe5,
-		#71bae6,
-		#60c4dd,
-		#63c8d1,
-		#6fcbc4,
-		#81cdb6,
-		#90ccac,
-		#9fcba3,
-		#aec99d,
-		#bbc799
-	);
-	background-size: 400% 400%;
-	height: 100vh;
-	animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+	background: linear-gradient(135deg, rgb(18, 16, 22), rgb(34, 10, 64));
 }
