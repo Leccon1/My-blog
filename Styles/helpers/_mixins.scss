@@ -39,6 +39,11 @@
   height: $size;
 }
 
+@mixin object-zone($Wsize,$H-size) {
+    width: $Wsize;
+    height: $H-size;
+}
+
 @mixin visually-hidden {
   position: absolute !important;
   width: 1px !important;

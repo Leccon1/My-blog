@@ -1,5 +1,11 @@
 @use 'helpers' as *;
 
 body {
-	background: linear-gradient(135deg, rgb(18, 16, 22), rgb(34, 10, 64));
+	background: rgb(237, 185, 208);
+	background: linear-gradient(
+		0deg,
+		rgba(237, 185, 208, 1) 0%,
+		rgba(160, 194, 233, 1) 100%
+	);
+	padding-top: rem(200);
 }
